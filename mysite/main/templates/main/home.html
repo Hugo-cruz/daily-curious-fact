@@ -1,0 +1,55 @@
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+
+
+
+
+<body class="text-center">
+
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand">Daily Curious Fact</h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link active" href="https://github.com/Hugo-cruz/">Github</a>
+            <a class="nav-link" href="https://www.linkedin.com/in/hugo-fellipe-cruz-3a902273/">Linkedin</a>
+            <a class="nav-link" href="https://www.instagram.com/hugof3llipe/">Instagram</a>
+          </nav>
+        </div>
+      </header>
+
+      <main role="main" class="inner cover">
+        <h1 class="cover-heading">Daily Curious Fact</h1>
+        <p class="lead">Everyday some useless fact to entertain you</p>
+        <p class="lead">
+          <a href="#" class="btn btn-lg btn-secondary">Contribute</a>
+        </p>
+      </main>
+      <div class="card shadow-sm">
+        
+        {% for curiosity in curiosities %}
+        <div class="card-body">
+          <p class="card-text">{{curiosity}}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+            </div>
+            <small class="text-muted">9 mins</small>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+        </div>
+      </footer>
+    </div>
+
+    
+
+  </body>
