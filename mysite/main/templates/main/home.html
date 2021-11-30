@@ -1,3 +1,6 @@
+{% extends "main/header.html" %}
+
+
 {% load static %}
 <head>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
@@ -8,18 +11,9 @@
 
 
 <body class="text-center">
-
+  {% block content %}
     <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-      <header class="masthead mb-auto">
-        <div class="inner">
-          <h3 class="masthead-brand">Daily Curious Fact</h3>
-          <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="https://github.com/Hugo-cruz/">Github</a>
-            <a class="nav-link" href="https://www.linkedin.com/in/hugo-fellipe-cruz-3a902273/">Linkedin</a>
-            <a class="nav-link" href="https://www.instagram.com/hugof3llipe/">Instagram</a>
-          </nav>
-        </div>
-      </header>
+    
 
       <main role="main" class="inner cover">
         <h1 class="cover-heading">Daily Curious Fact</h1>
@@ -49,7 +43,7 @@
         </div>
       </footer>
     </div>
-
+    {% endblock %}
     
 
   </body>
