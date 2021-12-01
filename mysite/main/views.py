@@ -4,6 +4,7 @@ from .models import Curiosities
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login,logout,authenticate
 from django.contrib import messages
+from .forms import CuriositiesForm
 
 
 # Create your views here.
@@ -58,3 +59,24 @@ def login_request(request):
                 template_name="main/login.html",
                 context={"form":form})
     
+def create_curiosity(request):
+    if request.user.is_authenticated:
+    
+        form = CuriositiesForm()
+        if(request.method == "POST"):
+            form = CuriositiesForm(request.POST)
+            if(form.is_valid()):
+                form.save()
+                return redirect("main:homepage")
+        context = {'form':form}
+        return render(request,"main/create_curiosity.html",context)
+    else:
+        return redirect("main:login")
+
+def my_curiosities(request):
+    if request.user.is_authenticated:
+        return render(request=request,
+                    template_name="main/home.html",
+                    context={"curiosities": Curiosities.objects.filter(author_id=request.user.id)})
+    else:
+        return redirect("main:login")
