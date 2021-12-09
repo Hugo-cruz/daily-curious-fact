@@ -3,8 +3,8 @@
 
 {% load static %}
 <head>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <script src="{% static 'js/bootstrap.js' %}"></script>
 </head>
 
 
@@ -12,15 +12,25 @@
 
 <body class="text-center">
   {% block content %}
-    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column" style="margin-top: 30px;">
     
 
       <main role="main" class="inner cover">
-        <h1 class="cover-heading">Daily Curious Fact</h1>
-        <p class="lead">Everyday some useless fact to entertain you</p>
-        <p class="lead">
-          <a href="#" class="btn btn-lg btn-secondary">Contribute</a>
-        </p>
+
+        <div class="row">
+        <div class="col align-self-start">
+          <h1 class="cover-heading">Daily Curious Fact</h1>
+          <p class="lead">Everyday some useless fact to entertain you</p>
+        </div>
+        <div class="col align-self-end text-right">
+          <p class="lead">
+            <a href="#" class="btn btn-lg btn-secondary">Contribute</a>
+          </p>
+      </div>
+    </div>
+
+
       </main>
       <div class="card shadow-sm">
         
