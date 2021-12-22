@@ -24,12 +24,13 @@
         
         {% for curiosity in curiosities %}
         <div class="card-body">
-          <p class="card-text">{{curiosity}}</p>
+          <p class="card-text"><b>{{curiosity}}</b></p>
           {% for comment in comments %}
             {% if comment.curiosity_id.id == curiosity.id %}
             <div class="card">
               <div class="card-body">
                 {{comment}}
+                <a class="btn btn-primary" href="create_comment">Comentar</a>
                 {% if user.id == comment.author_id.id %}
                   <a class="btn btn-danger" href="{% url 'main:delete_curiosity' comment.comment_id %}">Deletar</a>
                 {% endif %}
@@ -37,12 +38,7 @@
             </div>
             {% endif %}
           {% endfor %}
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-secondary">Comentar</button>
-            </div>
-            <small class="text-muted">9 mins</small>
-          </div>
+
         </div>
         {% endfor %}
       </div>

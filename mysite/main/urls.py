@@ -24,5 +24,6 @@ urlpatterns = [
     path('login/',views.login_request,name="login"),
     path('create_curiosity/',views.create_curiosity,name="create_curiosity"),
     path('my_curiosities/',views.my_curiosities,name="my_curiosities"),
-    path('delete_curiosity/<str:pk>/',views.delete_curiosity,name="delete_curiosity")
+    path('delete_curiosity/<str:pk>/',views.delete_curiosity,name="delete_curiosity"),
+    path('create_comment/',views.create_comment,name="create_comment")
 ]

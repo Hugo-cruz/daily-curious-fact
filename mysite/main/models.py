@@ -34,7 +34,7 @@ class Comment(models.Model):
     
     comment_id = models.AutoField(primary_key=True)
     text = models.TextField()
-    published_date = models.DateTimeField("date published")
+    published_date = models.DateTimeField("date published",null=True)
     curiosity_id = models.ForeignKey(Curiosities, on_delete=models.CASCADE)
     author_id = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,default=DEFAULT_CATEGORY_ID)
     

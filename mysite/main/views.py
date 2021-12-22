@@ -4,7 +4,7 @@ from .models import Curiosities, Comment
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login,logout,authenticate
 from django.contrib import messages
-from .forms import CuriositiesForm
+from .forms import CuriositiesForm, CommentForms
 
 
 # Create your views here.
@@ -92,3 +92,17 @@ def delete_curiosity(request,pk):
         return redirect("main:homepage")
 
     return render(request,'main/delete.html',context={"comment":comment})
+
+def create_comment(request):
+    if request.user.is_authenticated:
+    
+        form = CommentForms()
+        if(request.method == "POST"):
+            form = CommentForms(request.POST)
+            if(form.is_valid()):
+                form.save()
+                return redirect("main:homepage")
+        context = {'form':form}
+        return render(request,"main/create_comment.html",context)
+    else:
+        return redirect("main:login")
