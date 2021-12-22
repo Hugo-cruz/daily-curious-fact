@@ -14,7 +14,7 @@ class Category(models.Model):
 
 class Curiosities(models.Model):
     id = models.AutoField(primary_key=True)
-    text = models.TextField()
+    text = models.TextField(max_length=200)
     published_date = models.DateTimeField("date published",auto_now_add=True)
     category_id = models.ForeignKey(Category, on_delete=models.CASCADE, default=DEFAULT_CATEGORY_ID)
     author_id = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,default=DEFAULT_CATEGORY_ID)
@@ -36,6 +36,10 @@ class Comment(models.Model):
     text = models.TextField()
     published_date = models.DateTimeField("date published")
     curiosity_id = models.ForeignKey(Curiosities, on_delete=models.CASCADE)
+    author_id = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,default=DEFAULT_CATEGORY_ID)
+    
+    def __str__(self):
+        return self.text
     
 
 

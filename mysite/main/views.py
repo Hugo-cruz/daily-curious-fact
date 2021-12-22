@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .models import Curiosities
+from .models import Curiosities, Comment
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login,logout,authenticate
 from django.contrib import messages
@@ -9,9 +9,12 @@ from .forms import CuriositiesForm
 
 # Create your views here.
 def homepage(request):
+    curiosities = Curiosities.objects.all
+    comments = Comment.objects.select_related('curiosity_id')
     return render(request=request,
                 template_name="main/home.html",
-                context={"curiosities": Curiosities.objects.all})
+                context={"curiosities": curiosities,
+                        "comments":comments})
 
 def register(request):
 
@@ -80,3 +83,12 @@ def my_curiosities(request):
                     context={"curiosities": Curiosities.objects.filter(author_id=request.user.id)})
     else:
         return redirect("main:login")
+
+
+def delete_curiosity(request,pk):
+    comment = Comment.objects.get(comment_id=pk)
+    if(request.method == "POST"):
+        comment.delete()
+        return redirect("main:homepage")
+
+    return render(request,'main/delete.html',context={"comment":comment})

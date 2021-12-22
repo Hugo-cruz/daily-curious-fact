@@ -25,10 +25,21 @@
         {% for curiosity in curiosities %}
         <div class="card-body">
           <p class="card-text">{{curiosity}}</p>
+          {% for comment in comments %}
+            {% if comment.curiosity_id.id == curiosity.id %}
+            <div class="card">
+              <div class="card-body">
+                {{comment}}
+                {% if user.id == comment.author_id.id %}
+                  <a class="btn btn-danger" href="{% url 'main:delete_curiosity' comment.comment_id %}">Deletar</a>
+                {% endif %}
+              </div>
+            </div>
+            {% endif %}
+          {% endfor %}
           <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Comentar</button>
             </div>
             <small class="text-muted">9 mins</small>
           </div>
@@ -37,7 +48,7 @@
       </div>
       <footer class="mastfoot mt-auto">
         <div class="inner">
-          <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+          <p>Cover tttemplate for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
         </div>
       </footer>
     </div>
