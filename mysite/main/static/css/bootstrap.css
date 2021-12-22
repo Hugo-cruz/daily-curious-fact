@@ -21,7 +21,7 @@
   --primary: #007bff;
   --secondary: #6c757d;
   --success: #28a745;
-  --info: #17a2b8;
+  --info: #00ADB5;
   --warning: #ffc107;
   --danger: #dc3545;
   --light: #f8f9fa;
@@ -58,14 +58,16 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
+  color: #3A4750;
   text-align: left;
-  background-color: #fff;
+  background-color: #EEEEEE;
 }
 
 [tabindex="-1"]:focus {
   outline: 0 !important;
 }
+
+
 
 hr {
   box-sizing: content-box;
@@ -153,15 +155,20 @@ sup {
 }
 
 a {
-  color: #007bff;
+  color: #303841;
   text-decoration: none;
+  /*font-weight: bold;   */ 
   background-color: transparent;
 }
 
 a:hover {
-  color: #0056b3;
+  color: #00ADB5;
+  font-weight: bold;    
+
   text-decoration: underline;
 }
+
+
 
 a:not([href]):not([tabindex]) {
   color: inherit;
@@ -2455,14 +2462,14 @@ fieldset:disabled a.btn {
 
 .btn-secondary {
   color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
+  background-color: #575e64;
+  border-color: #575e64;
 }
 
 .btn-secondary:hover {
   color: #fff;
-  background-color: #5a6268;
-  border-color: #545b62;
+  background-color: #575e64;
+  border-color: #575e64;
 }
 
 .btn-secondary:focus, .btn-secondary.focus {
