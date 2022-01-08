@@ -1,20 +1,19 @@
 # Daily Curious Fact
 
-My main goal with this project is to learn Django. 
-To avoid boredom, I'll make a website in which you can find a different - and useless - fact everyday. 
+Project to Database couerse on Universidade de Sõa Paulo
 
 ## Installation
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 
 ```bash
-soon
+pip install django
 ```
 
 ## Usage
 
 ```python
-soon
+python3 manage.py runserver
 ```
 
 # Ideas
@@ -28,5 +27,8 @@ If you want to contribute with useless facts, email me at hugo.fellipe.cruz@gmai
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
 
-## Author
-Hugo Fellipe a.k.a. Olodum
+## Authors
+Daniel Yuji Yamada - 10430920
+Matheus Pecoraro de Carvalho Santos 11917271
+Sungwon Yoon - 9822261
+Hugo Fellipe - 10903872
